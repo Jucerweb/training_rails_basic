@@ -1,0 +1,11 @@
+Vistas Parciales, En caso de qué se necesite repetir código en una vista, se comparte con otra.
+
+A diferencia del Layout, las vistas parciales nosotros seleccionamos donde llamarlas.
+
+- Crear una vista parcial :
+ El nombre siempre debe iniciar con _  (Guion bajo)
+
+- Llamar un parcial :
+
+ <%= render "ruta/nombreParcial" %>
+

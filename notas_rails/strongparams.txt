@@ -1,0 +1,10 @@
+StrongParams, Permite proteger nuestra aplicación de modificaciones a la BD.
+
+Dentro de un metodo privado, definimos los campos qué el usuario puede ingresar.
+así :
+
+  private
+
+  def 'method'
+    params.require(:article).permit(:title,:body)
+  end

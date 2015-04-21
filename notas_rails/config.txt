@@ -1,0 +1,16 @@
+- Base de datos:
+Base de datos por defecto : sqlite3
+rails new app_name -d postgresql para usar postgres como la bdd por defecto
+
+* Cada vez qué utilizamos el comando 'bin/rake', la base de datos :db/test.sqlite3 , se borra.
+
+-Cambiar Base de datos.
+proyecto/gemfile : agregar gem "nombreBD"
+
+En la terminal : bundle install , con esto actualiza todas las gemas.
+
+configurar en el archivo : database.yml
+
+- Cambiar pagina del servidor :
+routes.rb, modifica root 'nombreview#accion'
+

@@ -1,0 +1,19 @@
+- CoffeScript : Compila javascript.
+
+- SASS : prepocesador de CSS
+
+- Las hojas de estilo van en la carpeta assets/stylesheets
+
+- require_tree , agrega todos los archivos al proyecto.
+
+- erb : acceso a ruby dentro de la vista
+
+
+
+
+
+
+
+
+
+

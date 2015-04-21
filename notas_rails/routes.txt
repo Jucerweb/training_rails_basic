@@ -1,0 +1,46 @@
+En este archivo definimos cómo acceder a las vistas.
+
+Method/HTTP =
+
+  GET
+  POST
+  PATCH
+  PUT
+  DELETE
+------------------------------------------------------
+Acceder al siguiente recurso.
+
+get 'welcome/index'
+
+Si cambiamos a : post 'welcome/index', no podriamos accerder a la
+vista.
+Al menos qué lo definamos en el enlace así :
+<%= link_to "recursoPOST", 'welcome/index', method: :post %>
+
+Esto se hace para proteger la aplicación y qué la aplicación solo pueda ser accedida de la manera en qué la definamos.
+
+- Forma de definir una ruta :
+verbo(GET,POST,PATCH,PUT,DELETE) y ruta 'nombreControlador/nombreAccion'
+
+get 'welcome/index' Busca el controlador 'Welcome' y ejecuta la accion 'index'
+
+- Renombrar ruta : get "nombreRuta", to: "nombreControlado#nombreAccion"
+
+- resources,nos permite crear rutas
+
+resources :articles, genera lo siguiente :
+get "/articles"    index
+post "/articles"    create
+delete "/articles/:id"    destroy
+get "/articles/:id"     show
+get "/articles/:new"      new
+get "/articles/:id/edit"   edit
+patch "/articles/:id"      update
+put "/ articles/:id"    update
+
+Estas rutas mapean nuestros recurso para poder aplicar acciones CRUD ; Create,Read,Update,Delete(Crear,leer,actualizar,eliminar)
+
+* Exepciones :
+- resources :articles, except: [:delete] ; crea todas las rutas excepto 'delete'
+- resources :articles, only [:create, :show] ; crea solo las rutas especificadas.
+

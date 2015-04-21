@@ -1,0 +1,9 @@
+Los controladores son el puente entre la base de datos y la vista.
+
+Nuestros controladores deben heredar de application_controller.rb y este hereda de
+ActionController::Base, en el cual está toda la base del framework,para qué nuestros controladores puedan funcionar.
+
+
+
+
+

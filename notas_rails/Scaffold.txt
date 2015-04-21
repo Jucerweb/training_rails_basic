@@ -1,0 +1,6 @@
+Scaffold, Herramienta de rails para el desarrollo agíl.
+Nos permite crear un CRUD,osea un controlador con el cual podemos crear,leer, actualizar, eliminar. También incluye las vistas correspondientes a las acciones, el controlador, el modelo y la migración.
+
+- Crear un Scaffold :
+rails generate scaffold NombreModelo CamposModelo
+* rails generate scaffold Comment user:references article:references body:text

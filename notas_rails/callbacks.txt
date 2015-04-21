@@ -1,0 +1,24 @@
+Callbacks, Son metodos qué nos permiten ejecutar bloques de código antes o despues de la alteración del estado de un objeto.
+
+Ejemplos :
+- before_action :authenticate_user!, except: [:show, :index]
+Este es un metodo de Devise, el cual exige al usuario estar autenticado en las vistas qué especifiquemos, en este caso todas,excepto en show e index.
+
+- before_create :set_visits_count
+
+  private
+
+  def set_visits_count
+    self.visits_count = 0
+  end
+
+* Accede al metodo set_visits_count, antes de la acción create.
+
+-   before_action :set_article, except: [:index,:new,:create]
+
+  private
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+* Ejecuta el metodo set_article antes de la accíon.

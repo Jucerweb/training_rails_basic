@@ -1,2 +1,10 @@
-<h1>Welcome to my blog </h1>
+<h1> Welcome to my blog
+  <% if user_signed_in? %>
+    <%= current_user.email %>
+  <% end %>
+</h1>
+
+<%# [1,2,3,4].each do |number| %>
+ <%#= number * 2%>
+<%#end%>
 

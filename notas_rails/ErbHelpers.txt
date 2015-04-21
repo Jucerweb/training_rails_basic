@@ -1,0 +1,6 @@
+<% 'codigo' %> ; Ejecuta el codigo ruby sin imprmir.
+
+<%= 'codigo' %> ; Ejecuta e imprime el codigo ruby
+
+<%= link_to "Home", root_path %> equivale a
+<a href = "root_path"> Home </a>

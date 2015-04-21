@@ -1,0 +1,37 @@
+Devise, es una de las gemas qué nos sirven para autenticación de usuarios.
+
+- Agregamos la gema al Gemfile : gem 'devise'
+- Luego en la terminal digitamos : Bundle install
+- Ahora Instalamos devise al proyecto: rails g devise:install
+
+- Configurar el proyecto :
+* Tener configurada una pagina principal,ejemplo:
+  root to: "home#index"
+* Tener FLash Messages,(pasar mensajes del controlador a la vista) en nuestro Layout :
+app/views/layouts/application.html.erb.
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+* Customizar el login :
+ rails g devise:views
+
+- Generar Modelo con el qué vamos a trabajar :
+rails g devise User
+
+revisamos la migracion y la ejecutamos : rake db:migrate
+
+- Metodos devise :
+
+* nombremodelo_signed_in? Verifica si hay un login activo : user_signed_in?
+
+* destroy_nombremodel_session_path, method: :delete , destruye la session.   <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+* new_nombreModel_session_path , redirige al login.
+   <%= link_to "Log in", new_user_session_path %>
+
+* new_user_registration_path, redirige al registro de usuario.
+   <%= link_to "Sign Up", new_user_registration_path %>
+
+* current_nombreModelo.Campo = Nos muestra información del usuario activo.
+   <%= current_user.email %> = Nos muestra el email.
+

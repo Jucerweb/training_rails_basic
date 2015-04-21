@@ -1,0 +1,28 @@
+ActiveRecord es una interfaz qué mapea la base de datos y nos permite comunicarnos con ella a traves de objetos en lugar de utilizar SQL, además de las ventajas de utilizar directamente objetos,su mayor ventaja es qué no importa cual sea la base de datos qué utilizemos, el código se mantiene igual.
+
+- Metodos de clase :
+.all = Trae todos los registros.
+Ejemplo : Article.all
+
+.create = crear un objeto, en este caso un articulo.
+ejemplo = Article.create( title: "First article", body: "Welcome to my blog", visits_count: 0)
+
+.inspect = Inspeccionar objeto
+
+.find = Busca un elemento por su ID.
+ejemplo : Article.find(params[:id])
+
+.find_by(title: "First article") = Busca un elemento por medio un parametro.
+
+.where("title LIKE ?", "%article%") = Busca todos los elementos con un dato en común.
+
+.where("title LIKE ?", "%article%").count = Busca y cuenta todos los elementos con un campo en común.
+
+.where.not("id = 1").count = negación de where, nos muestra los elementos diferentes a lo especificado.
+
+params = Este objeto es un Hash qué tiene todos los parametros qué se pasaron al servidor web, uno de ellos es :id
+
+
+.last.destroy = Elimina el ultimo articulo.
+
+.count = Nos muestra la cantidad de elementos en la base de datos.

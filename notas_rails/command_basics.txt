@@ -1,0 +1,18 @@
+
+- Cambiar version ruby : rvm use 'version'
+
+- Crear proyecto  : rails new --help
+
+- Iniciar server : bin/rails server ó bin/rails s, estando ubicado
+en la carpeta del proyecto.
+
+- Cerrar server : cmd/ctrl + c
+
+- rails generate , nos sirve para crear generadores : model, controller, scaffold, etc
+
+- Generar controlador : rails generate controller 'nombre' 'accion'
+
+- Generar modelo : rails generate model Article title body:text visits_count:integer
+
+- Abrir consola rails : rails console
+

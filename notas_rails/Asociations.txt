@@ -1,0 +1,15 @@
+Asociaciones, Nos permiten hacer referencias entre tablas.
+
+- Generar Migración de Asociación: rails generate migration #código
+
+rails generate migration add_user_id_to_articles user:references
+Con esto creamos un campo 'user_id' con el cual agregamos una referencia a la tabla articles, para qué referencie a la tabla user.
+
+
+ Asociaciones 1 a muchos :
+
+ En el modelo article :
+ belongs_to :user  = Pertenece a NombreTabla
+
+ En el modelo user :
+ has_many :articles , contiene muchos NombreTabla

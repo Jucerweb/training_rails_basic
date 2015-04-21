@@ -1,0 +1,9 @@
+Se encarga de agrupar el contenido en común qué tienen las vistas.
+
+<%= yield %> se encarga de insertar el contenido de las vistas.
+
+Toda la estructura qué es común para nuestra pagina web debe ir en layout.
+
+<<Don't Repeat Yourself.>> DRY
+
+Un ejemplo puede ser el Menu de navegación.

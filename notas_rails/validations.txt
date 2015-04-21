@@ -1,0 +1,11 @@
+Las validaciones corresponden al modelo, ruby trae por defecto metodos para validar campos.
+
+Ejemplos :
+- validates :title,presence: true
+Esto nos valida qué el campo no este vacío.
+
+- validates :body, presence: true, length: {minimum: 20}
+Esto valida qué el campo no esté vacío o tenga menos de 20 letras.
+
+- validates :title,presence: true, uniqueness: true
+Esto nos valida qué el titulo del articulo no esté repetido, osea qué haiga otro articulo con el mismo titulo.

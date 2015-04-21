@@ -1,0 +1,33 @@
+<header>
+  <nav class = "be-red white large-padding">
+    <ul class = "no-list row center-xs middle-xs">
+      <li class = "col-md">
+        <h1 class = "no-margin"> Blog Jucer </h1>
+      </li>
+      <li class = "col-md">
+        <%= link_to "Home",root_path %>
+      </li>
+      <li class = "col-md">
+        Design
+      </li>
+      <li class = "col-md">
+        Programing
+      </li>
+      <% if user_signed_in? %>
+        <li class = "col-md">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li class = "col-md">
+          <%= link_to "Log in", new_user_session_path %>
+        </li>
+        <li class = "col-md">
+          <%= link_to "Sign Up", new_user_registration_path %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>

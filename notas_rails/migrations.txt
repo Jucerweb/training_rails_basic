@@ -1,0 +1,28 @@
+Las migraciones son archivos qué nos permiten hacer modificaciones a la base de datos : crear tablas, agregar campos,borrar, etc. Todo esto se hace en las migraciones, no directamente en la base de datos.
+
+Se comportan como en una especie de pila, el ultimo archivo qué se agrega es el primer en ejecutarse.
+
+proyecto/db/migrate
+
+* bin/rake db:migrate : ejecutar las migraciones.
+Va ejecutar la modificaciones declaradas en el metodo :
+
+def change
+  #codigo
+  #codigo
+end
+
+def up
+  # migrate
+end
+
+def down
+  # rollback
+end
+
+* bin/rake db:rollback : ejecuta el inverso del metodo 'change' , a la ultima migración.
+
+Al ejecutar migraciones se crea o actualiza el archivo 'db/schema.rb', el cual guarda el esquema de nuestra base de datos.
+
+
+

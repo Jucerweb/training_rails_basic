@@ -1,0 +1,43 @@
+Nested Resources, se tratan de recursos qué son un sub-recursos de otro.
+
+En el ejemplo de un Articulo, los comentarios son un sub recurso de los articulos.
+* Ejemplo:
+#Llamamos al formularios de comentarios en la acción Show de articles:
+
+ <div class = "field">
+        <h3>Comments</h3>
+        <%= render "comments/form" %>
+ </div>
+
+ # En la vista parcial _form, de comments, modificamos el form_for y le pasamos el parametro @article :
+ <%= form_for([@article,@comment]) do |f| %>
+
+ #Inicializamos en article_controller un nuevo comentario :
+  def show
+    #código...
+
+  * @comment = Comment.new
+  end
+
+ #Asociamos el modelo user.rb con comments:
+
+ * has_many :comments
+
+ # En el controlador comments_controller, agregamos el usuario actual al crear el comentario.
+
+ def create
+    @comment = current_user.comments.new(comment_params)
+    @comment.article = @article : decimos qué el id del articulo es el de la url.
+    ...
+    ...
+ end
+
+ Y hacemos un callback del metodo set_article
+ * before_action :set_article
+
+
+ def set_article
+      @article = Article.find(params[:article_id])
+      #Accedemos al recurso padre por medio del id.
+ end
+

@@ -1,0 +1,6 @@
+<% @articles.each do |article| %>
+<h1><%= link_to article.title, article %></h1>
+<div><%= article.body %>
+<p style = "color:white"><%= link_to "Delete Post", article, method: :delete, class:"be-red white large-padding" %></p></div>
+
+<%end%>
