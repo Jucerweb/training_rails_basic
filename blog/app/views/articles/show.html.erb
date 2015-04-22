@@ -6,6 +6,9 @@
       <p>
         Write for : <%= @article.user.email %>
       </p>
+      <div class = "field">
+        <%= image_tag @article.cover.url() %>
+      </div>
       <p>
         Visits : <%= @article.visits_count %>
       </p>
@@ -15,7 +18,7 @@
       <div class = "field">
         <h3>Comments</h3>
         <%= render "comments/form" %>
-        <ul>
+        <ul id = "comments-box">
           <% @article.comments.each do |comment| %>
           <li>
             <%= comment.body %> - <%= comment.user.email %>

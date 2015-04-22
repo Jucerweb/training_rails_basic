@@ -7,7 +7,9 @@
     </div>
   <%end%>
 <div class = "field">
-  <%= f.text_field :title, placeholder: "Title", class:"form-control" %>
+<%= f.text_field :title, placeholder: "Title", class:"form-control" %>
+<div class = "field" >
+  Front Cover: <%= f.file_field :cover %>
 </div>
 <div class = "field">
   <%= f.text_area :body, placeholder: "Write the article", style: "height: 250px", class:"form-control" %>

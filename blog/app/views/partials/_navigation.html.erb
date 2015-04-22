@@ -8,12 +8,12 @@
         <%= link_to "Home",root_path %>
       </li>
       <li class = "col-md">
-        Design
-      </li>
-      <li class = "col-md">
-        Programing
+        <%= link_to "Articles", articles_path %>
       </li>
       <% if user_signed_in? %>
+       <li class = "col-md">
+        <%= link_to "New Article", new_article_path %>
+      </li>
         <li class = "col-md">
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
         </li>
