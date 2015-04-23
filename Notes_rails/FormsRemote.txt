@@ -1,0 +1,27 @@
+Forms remote a traves de Ajax.
+Ajax : javascript asincronó, eso quiere decir qué las peticiones qué hagamos se ejecutan sin cargar la pagina.
+
+En el comment/_form agregamos: remote: true , lo qué hara quel form se envié por ajax.
+* <%= form_for([@article,@comment],remote: true, html: {id: "comments-form"}
+
+- Instalamos gem 'jquery-turbolinks'
+
+* Le agremos un id a la lista de articles/show
+        <h3>Comments</h3>
+        <%= render "comments/form" %>
+      * <ul id = "comments-box">
+          <% @article.comments.each do |comment| %>
+          <li>
+            <%= comment.body %> - <%= comment.user.email %>
+          </li>
+          <% end %>
+
+* luego en comments.cofee agregamos :
+
+$(document).on "ajax:success", "form#comments-form", (ev,data)->
+  console.log data
+  $("#{comment_body}").val("")   #Borra nuestros textarea
+  $("#comments-box").append("<li> #{data.body} - #{} </li>") #agrega el comentario a la vista
+$(document).on "ajax:error", "form#comments-form", (ev,data)->
+  console.log data #Nos muestra los errores.
+

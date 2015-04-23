@@ -1,0 +1,35 @@
+- Instalar ImageMagick : brew install imagemagick
+- Confirmar version: convert -version
+- Instalar Gema:  gem 'paperclip'
+
+* Agregar el campo a la BD article :
+ rails g migration add_cover_to_articles
+
+- en la migracion agregamos lo siguiente :
+def change
+    add_attchament :articles,:cover
+end
+
+y ejecutamos la migración : rake db:migrate
+
+- Agregamos la configuracion de paperclip al modelo :
+has_attached_file :cover, styles:{ medium: "1280x720", thumb:"800x600"}
+
+* y la validación de los arhivos a subir :
+  validates_attachment_conten_type :cover,content_type:
+
+- Agregamos el campo al formulario :
+<div class = "field" >
+  Front Cover: <%= f.file_field :cover %>
+</div>
+
+- Agregamos al controlador el parametro fuerte :cover
+def article_params
+    params.require(:article).permit(:title,:body,:cover)
+end
+
+- Agregamos a la vista article/show el codigo para qué nos muestre la imagen :
+
+div class = "field">
+        <%= image_tag @article.cover.url() %>
+</div>

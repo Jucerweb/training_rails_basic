@@ -4,3 +4,5 @@
 
 <%= link_to "Home", root_path %> equivale a
 <a href = "root_path"> Home </a>
+
+<%= f.file_field :cover %> Nos sirve para subir un archivo.
