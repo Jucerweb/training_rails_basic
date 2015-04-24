@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Market</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav>
+        <ul class = "nav nav-tabs">
+          <li>
+             <%= link_to "Home", root_path  %>
+          </li>
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "Edit Profile", edit_user_registration_path(current_user) %>
+            </li>
+            <li>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Login", new_user_session_path %>
+            </li>
+            <li>
+              <%= link_to "Sign up", new_user_registration_path %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+      <% unless notice.nil? %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% unless alert.nil? %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+    </header>
+    <%= yield %>
+  </div>
+
+</body>
+</html>
