@@ -5,12 +5,15 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-   config.secret_key = '29b10f850d4d33d787f4cd9aad8298695a2990daeefb1b07cea31df3d22eee62cbc601f67ee1e0a6480b7bf570a116aabd183ff39427a1955d624bc6556b27c0'
+  config.secret_key = '29b10f850d4d33d787f4cd9aad8298695a2990daeefb1b07cea31df3d22eee62cbc601f67ee1e0a6480b7bf570a116aabd183ff39427a1955d624bc6556b27c0'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
+  #config.omniauth :twitter, "D7YCNMjQmCG5YPcgL1fMg", "rYhMwdwFkBzvaS65o4710E67HXlzsBo6mmtHk4gihs"
+
+  config.omniauth :twitter, "gjcs6WxghZIKhYsKjGWVzljhR", "yDoFYmG7FOe7A8Ov8WoSdmcFY8hU1V0qaPsMqyWnM3Cy1I8mBZ"
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
   config.omniauth :facebook, "810444575692968", "583cabfa44637b1d0d6f5351eb601902"
   OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?

@@ -1,9 +1,12 @@
 <div class = "row">
   <div class = "col-md-3 center-block no-float">
-    <h2><span class = "glyphicon glyphicon-user"></span>Log in</h2>
+    <h2><span class = "fa fa-user"></span> Log in</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name),html: {role: "form"}) do |f| %>
-
+      <%= devise_error_messages! %>
+      <% if session[:omniauth_erros] %>
+        <div class="flash"><% session[:omniauth_erros] %></div>
+      <% end %>
       <div class="form-group">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
