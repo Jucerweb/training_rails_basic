@@ -1,13 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+first_post :
+  title: My first article
+  content: My first content
+  extension: jpg
+  user_id:
 one:
   title: MyString
   content: MyText
   extension: MyString
-  user_id: 
+  user_id:
 
 two:
   title: MyString
   content: MyText
   extension: MyString
-  user_id: 
+  user_id:

@@ -2,13 +2,14 @@ class OmniauthCallbacksController < ApplicationController
   def facebook
     auth = request.env["omniauth.auth"]
     data = {
-      name: auth.info.first_name,
+      name: auth.info.name,
       surname: auth.info.last_name,
-      username: auth.info.nickname,
+      username: auth.info.first_name,
       email: auth.info.email,
       provider: auth.provider,
       uid: auth.uid
     }
+
     @user = User.find_or_create_by_omniauth(data)
 
     if @user.persisted?
@@ -19,7 +20,7 @@ class OmniauthCallbacksController < ApplicationController
 
       session[:omniauth_data] = data
 
-      redirect_to new_usuario_registration_url
+      redirect_to new_user_registration_url
     end
   end
   def twitter

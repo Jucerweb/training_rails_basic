@@ -4,6 +4,24 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook, :twitter]
+
+  has_many :post
+  has_many :friendships
+  has_many :follows, through: :friendships, source: :user
+  has_many :followers_friendships, class_name: "Friendship", foreign_key: "user_id"
+  has_many :followers, through: :followers_friendships, source: :friend
+  def follow!(id_friend)
+    self.friendships.create!(friend_id: id_friend)
+  end
+
+  def can_follow?(id_friend)
+    not id_friend == self.id or friendships.where(friend_id: id_friend).size > 0
+  end
+
+  def email_required?
+    false
+  end
+
   validates :username, presence: true, uniqueness: true, length:{in: 5..20, too_short: "5 characters minimun", too_long: "20 characters maximun"},
     format: {with: /([A-Za-z0-9\-\_]+)/,message: "characters no valid"}
   #validate :my_validate, on: :create

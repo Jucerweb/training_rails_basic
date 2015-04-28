@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  resources :attachments
   resources :posts
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks",registrations: "registrations"}
-  get 'welcome/index'
-
+  resources :users, only: [:index, :show]
+  post "users/follow"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
