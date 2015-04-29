@@ -1,0 +1,5 @@
+<li class="list-group-item">
+  <% if activity.trackable.friend %>
+  <%= link_to activity.owner.username, activity.owner %> Follows : <%= link_to activity.trackable.friend.username, activity.trackable.friend %>
+  <%end%>
+</li>

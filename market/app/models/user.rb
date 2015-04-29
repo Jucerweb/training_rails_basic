@@ -4,12 +4,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook, :twitter]
-
+  has_many :payments
   has_many :post
-  has_many :friendships
-  has_many :follows, through: :friendships, source: :user
-  has_many :followers_friendships, class_name: "Friendship", foreign_key: "user_id"
-  has_many :followers, through: :followers_friendships, source: :friend
+  has_many :friendships, foreign_key: "user_id", dependent: :destroy
+  has_many :follows, through: :friendships, source: :friend
+  has_many :followers_friendships, class_name: "Friendship", foreign_key: "friend_id"
+  has_many :followers, through: :followers_friendships, source: :user
+
   def follow!(id_friend)
     self.friendships.create!(friend_id: id_friend)
   end
@@ -20,6 +21,10 @@ class User < ActiveRecord::Base
 
   def email_required?
     false
+  end
+
+  def total_shopping
+    self.payments.where(status:1).joins("INNER JOIN posts on posts.id == payments.post_id").sum("price")
   end
 
   validates :username, presence: true, uniqueness: true, length:{in: 5..20, too_short: "5 characters minimun", too_long: "20 characters maximun"},

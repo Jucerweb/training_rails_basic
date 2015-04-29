@@ -18,6 +18,9 @@
             <%= link_to "Posts", posts_path %>
           </li>
           <% if user_signed_in? %>
+           <li>
+              <%= link_to "My Shopping Cart", car_path %>
+            </li>
             <li>
               <%= link_to "Edit Profile", edit_user_registration_path %>
             </li>
@@ -44,7 +47,12 @@
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
     </header>
+
+  <div class="row">
+    <div class="col-md-6 center-block no-float">
     <%= yield %>
+  </div>
+</div>
   </div>
 
 </body>

@@ -1,9 +1,16 @@
 source 'https://rubygems.org'
+gem 'activemerchant'
+#Gema para las notificaciones
+gem 'public_activity'
+#Login a traves de terceros
 gem 'omniauth-twitter'
 gem 'omniauth-facebook', '~> 2.0.1'
 gem 'omniauth'
+#Agrega Font-Awesome, para los iconos
 gem 'font-awesome-rails', '~> 4.3.0.0'
+#Gema para login de usuarios
 gem 'devise'
+#Gema para estilos
 gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'

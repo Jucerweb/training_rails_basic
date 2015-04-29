@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get "/car", to: "payments#car"
+  get "/payments/express"
   resources :attachments
   resources :posts
+  resources :payments
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks",registrations: "registrations"}
   resources :users, only: [:index, :show]
   post "users/follow"

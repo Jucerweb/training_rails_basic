@@ -38,4 +38,13 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.after_initialize do
+   paypal_options = {
+      login: "jucerweb-facilitator-1_api2@hotmail.com",
+      password: "12345678",
+      signature: "AFcWxV21C7fd0v3bYYYRCpSSRl31ACdUW4sXiAuV3wqGC-HNc8W8M1Nl"
+    }
+    ::EXPRESS_GATEWAY = ActiveMerchant::Billing::PaypalExpressGateway.new(paypal_options)
+
+  end
 end
