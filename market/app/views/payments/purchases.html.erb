@@ -1,0 +1,9 @@
+<h1><i class="fa fa-shopping-cart"> My purchases</i></h1>
+<ul class="list-group">
+  <% @payments.each do |payment| %>
+    <li class="list-group-item">
+          <%= link_to payment.post.title, payment.post %>
+    </li>
+  <% end %>
+
+</ul>

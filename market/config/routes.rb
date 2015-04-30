@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get "/car", to: "payments#car"
+  get "/purchases", to: "payments#purchases"
+  get "/music", to: "welcome#music"
   get "/payments/express"
+  get "/transactions/checkout"
   resources :attachments
   resources :posts
   resources :payments

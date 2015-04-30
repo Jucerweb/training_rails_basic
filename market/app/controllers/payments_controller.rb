@@ -17,6 +17,11 @@ class PaymentsController < ApplicationController
     @payments = current_user.payments.where(status:1)
   end
 
+  def purchases
+        @payments = current_user.payments.where(status:2)
+
+  end
+
   def express
     cost = current_user.total_shopping
     response = EXPRESS_GATEWAY.setup_purchase(cost * 100,

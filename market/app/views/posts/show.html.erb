@@ -4,6 +4,7 @@
     <%= @post.content %>
   </div>
 </div>
+ Price : <%= @post.price %> USD
   <% if user_signed_in? %>
     <%= render "payments/form", payment: Payment.new,post: @post %>
   <% end %>

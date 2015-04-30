@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook, :twitter]
+  has_many :transactions
   has_many :payments
-  has_many :post
+  has_many :posts
   has_many :friendships, foreign_key: "user_id", dependent: :destroy
   has_many :follows, through: :friendships, source: :friend
   has_many :followers_friendships, class_name: "Friendship", foreign_key: "friend_id"
