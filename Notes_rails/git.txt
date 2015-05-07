@@ -1,0 +1,5 @@
+git rebase -i HEAD~3 : unir commits
+git log : mirar commits
+git push -f origin training : actualizar repositorio
+
+git pull -—rebase origin master : actualizar repositorio local

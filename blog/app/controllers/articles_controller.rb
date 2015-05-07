@@ -29,7 +29,6 @@ class ArticlesController < ApplicationController
   end
   #delete "/articles/:id"
   def destroy
-
     @article.destroy #Elimina el objeto de la BD
     redirect_to articles_path #redirecciona a articles
   end

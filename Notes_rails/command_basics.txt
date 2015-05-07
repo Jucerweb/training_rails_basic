@@ -5,7 +5,11 @@
 
 - Iniciar server : bin/rails server ó bin/rails s, estando ubicado
 en la carpeta del proyecto.
-
+- rails s -h
+- rails -h
+- bundle update sqlite3
+- rake -T
+- rails s -p 4000
 - Cerrar server : cmd/ctrl + c
 
 - rails generate , nos sirve para crear generadores : model, controller, scaffold, etc
